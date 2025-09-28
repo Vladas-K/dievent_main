@@ -208,3 +208,7 @@ __marimo__/
 
 .vscode/
 /.idea
+
+static/
+
+media/
