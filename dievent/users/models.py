@@ -60,7 +60,6 @@ class User(AbstractUser):
         verbose_name="Телефон подтвержден"
     )
     
-    date_joined = models.DateTimeField(auto_now_add=True)
     last_activity = models.DateTimeField(auto_now=True)
 
     class Meta:
