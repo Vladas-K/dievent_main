@@ -16,14 +16,16 @@ class CustomUserAdmin(UserAdmin):
         'phone',
         'is_staff', 
         'is_active',
-        'date_joined'
+        'date_joined',
+        'last_activity'
     ]
     
     list_filter = [
         'role', 
         'is_staff', 
         'is_active', 
-        'date_joined'
+        'date_joined',
+        'last_activity'
     ]
     
     fieldsets = UserAdmin.fieldsets + (
@@ -37,7 +39,8 @@ class CustomUserAdmin(UserAdmin):
                 'telegram_messenger', 
                 'whatsapp_messenger',
                 'email_verified',
-                'phone_verified'
+                'phone_verified',
+                'last_activity'
             )
         }),
     )
@@ -49,10 +52,13 @@ class CustomUserAdmin(UserAdmin):
                 'phone', 
                 'company',
                 'email_verified',
-                'phone_verified'
+                'phone_verified',
+                'last_activity',
+                'last_activity'
             )
         }),
     )
-    
+
+    readonly_fields = ['last_activity']
     search_fields = ['username', 'email', 'first_name', 'last_name', 'phone']
     ordering = ['-date_joined']
