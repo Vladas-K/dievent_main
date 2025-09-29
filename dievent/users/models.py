@@ -5,9 +5,9 @@ from django.db import models
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('client', 'Клиент'),
-        ('manager', 'Менеджер'),
+        ('manager', 'Менеджер проекта'),
         ('event_planner', 'Организатор мероприятий'),
-        ('admin', 'Администратор'),
+        ('admin', 'Администратор сайта'),
     ]
     
     role = models.CharField(
@@ -60,7 +60,9 @@ class User(AbstractUser):
         verbose_name="Телефон подтвержден"
     )
     
-    last_activity = models.DateTimeField(auto_now=True)
+    last_activity = models.DateTimeField(
+        auto_now=True,
+        verbose_name="Последняя активность")
 
     class Meta:
         verbose_name = "Пользователь"
